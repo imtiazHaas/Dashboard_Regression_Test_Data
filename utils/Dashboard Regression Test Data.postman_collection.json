@@ -1,0 +1,3946 @@
+{
+	"info": {
+		"_postman_id": "696b51a6-a8b1-451b-b381-8b0df01ecbd9",
+		"name": "Dashboard Regression Test Data",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30406916"
+	},
+	"item": [
+		{
+			"name": "Sign in",
+			"item": [
+				{
+					"name": "QA Sign In",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"access_token\", pm.response.json().access_token);",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJIQUFTIEFsZXJ0IiwiaWF0IjoxNjk4MTc0Mzc1LCJleHAiOjE2OTgyNjA3NzUsImp0aSI6IjE0OTUyNjRhLTJmNTctNDFhNi05ZTU1LTc3YjAyYzAyZmVlYSIsInVzZXIiOnsiaWQiOiIzOTQ5MjEzMi02ZWRiLTQ2ZDEtYmRkYy01NGNlNzA5MGNjNzIiLCJlbWFpbCI6InFhdGVzdEBoYWFzYWxlcnQuY29tIiwib3JnYW5pemF0aW9uX2lkIjoiMTM3N2EyOTUtN2Q3MC00ZTQxLWEwODYtODdjMzlmMjQzZmQ3IiwiZmVhdHVyZXMiOnsic2FtbCI6ZmFsc2V9LCJzZXJ2aWNlcyI6WyJmbGVldF9mdXNpb24iLCJkcml2ZSIsInNhZmV0eV9jbG91ZCIsImhhX2RpcmVjdCIsImFsZXJ0X3NlcnZpY2UiLCJ3emR4X3B1Ymxpc2hlciIsInd6ZHhfaW5nZXN0b3IiXX19.qSJGVNBw4ND0YQiZn9iHgoY-J-mALlsZWqWxVSD0yiE5IlZ-FUhOkr6v72jk_z_rR2r2vvrhrE3VTE_zDxBSBw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"grant_type\": \"password\",\n  \"username\": \"qatest@haasalert.com\",\n  \"password\": \"newTest21!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{auth_url}}/oauth/token",
+							"host": [
+								"{{auth_url}}"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						},
+						"description": "Authenticates user with username and password.  Receives access and refresh tokens."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "KC Scout",
+			"item": [
+				{
+					"name": "Owned",
+					"item": [
+						{
+							"name": "Submit Point - vehicle 1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": 38.9100,\r\n\t\"lon\": -94.3899,\r\n\t\"course\": 180,\r\n\t\"alt\": 10,\r\n\t\"speed\": 45,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": false,\r\n\t\"accelerometer\": [{\"x\":0.06153846,\"y\":0.69157511,\"z\":0.62124544}]\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/{{kc_scout_org_id}}/things/25004a0006504b5957343920/points",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"{{kc_scout_org_id}}",
+										"things",
+										"25004a0006504b5957343920",
+										"points"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submit Point - vehicle 2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": 38.9210,\r\n\t\"lon\": -94.3999,\r\n\t\"course\": 180,\r\n\t\"alt\": 10,\r\n\t\"speed\": 40,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": true,\r\n\t\"accelerometer\": [{\"x\":0.06153846,\"y\":0.69157511,\"z\":0.62124544}]\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/{{kc_scout_org_id}}/things/1b00340009504b5957343920/points",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"{{kc_scout_org_id}}",
+										"things",
+										"1b00340009504b5957343920",
+										"points"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submit Point - vehicle 3",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": 38.8990,\r\n\t\"lon\": -94.3860,\r\n\t\"course\": 180,\r\n\t\"alt\": 10,\r\n\t\"speed\": 38,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": true,\r\n\t\"accelerometer\": [{\"x\":0.06153846,\"y\":0.69157511,\"z\":0.62124544}]\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/{{kc_scout_org_id}}/things/5c0047000250483553353520/points",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"{{kc_scout_org_id}}",
+										"things",
+										"5c0047000250483553353520",
+										"points"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Managed",
+					"item": [
+						{
+							"name": "Submit Point - out of service vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": 38.9090,\r\n\t\"lon\": -94.3860,\r\n\t\"course\": 180,\r\n\t\"alt\": 10,\r\n\t\"speed\": 30,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": true,\r\n\t\"accelerometer\": [{\"x\":0.06153846,\"y\":0.69157511,\"z\":0.62124544}]\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/2cc95b5b-bfc2-49f9-b2c3-734fc75aad6b/things/b969/points",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"2cc95b5b-bfc2-49f9-b2c3-734fc75aad6b",
+										"things",
+										"b969",
+										"points"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submit Point - vehicle 2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": 38.9900,\r\n\t\"lon\": -94.3869,\r\n\t\"course\": 180,\r\n\t\"alt\": 10,\r\n\t\"speed\": 28,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": false,\r\n\t\"accelerometer\": [{\"x\":0.06153846,\"y\":0.69157511,\"z\":0.62124544}]\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/2cc95b5b-bfc2-49f9-b2c3-734fc75aad6b/things/a0c7469d-5275-407c-a075-5bf0815fe2a3/points",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"2cc95b5b-bfc2-49f9-b2c3-734fc75aad6b",
+										"things",
+										"a0c7469d-5275-407c-a075-5bf0815fe2a3",
+										"points"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submit Point - vehicle 1 in EZ",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": 38.91024458,\r\n\t\"lon\": -94.38161616,\r\n\t\"course\": 180,\r\n\t\"alt\": 10,\r\n\t\"speed\": 28,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": false,\r\n\t\"accelerometer\": [{\"x\":0.06153846,\"y\":0.69157511,\"z\":0.62124544}]\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/2cc95b5b-bfc2-49f9-b2c3-734fc75aad6b/things/12626105-9c2b-43cd-8138-9f7f1d6d10e8/points",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"2cc95b5b-bfc2-49f9-b2c3-734fc75aad6b",
+										"things",
+										"12626105-9c2b-43cd-8138-9f7f1d6d10e8",
+										"points"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submit Point - vehicle 2 in EZ",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": 38.91125582,\r\n\t\"lon\": -94.38271974,\r\n\t\"course\": 180,\r\n\t\"alt\": 10,\r\n\t\"speed\": 0,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": false,\r\n\t\"accelerometer\": [{\"x\":0.06153846,\"y\":0.69157511,\"z\":0.62124544}]\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/2cc95b5b-bfc2-49f9-b2c3-734fc75aad6b/things/01d70aa9-302f-49e6-b110-8f4abe3810d9/points",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"2cc95b5b-bfc2-49f9-b2c3-734fc75aad6b",
+										"things",
+										"01d70aa9-302f-49e6-b110-8f4abe3810d9",
+										"points"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submit Point - active vehicle in EZ",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": 38.91013466,\r\n\t\"lon\": -94.38305914,\r\n\t\"course\": 180,\r\n\t\"alt\": 10,\r\n\t\"speed\": 5,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": true,\r\n\t\"accelerometer\": [{\"x\":0.06153846,\"y\":0.69157511,\"z\":0.62124544}]\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/2cc95b5b-bfc2-49f9-b2c3-734fc75aad6b/things/a0c7469d-5275-407c-a075-5bf0815fe2a3/points",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"2cc95b5b-bfc2-49f9-b2c3-734fc75aad6b",
+										"things",
+										"a0c7469d-5275-407c-a075-5bf0815fe2a3",
+										"points"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Incidents",
+					"item": [
+						{
+							"name": "Submit a Location (with Thing) Copy",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\":  38.975301,\r\n\t\"lon\":  -94.348546,\r\n\t\"altitude\": \"100\",\r\n\t\"type\": \"emergency\",\r\n\t\"things\": [\"b5F7\"]\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/2cc95b5b-bfc2-49f9-b2c3-734fc75aad6b/locations",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"2cc95b5b-bfc2-49f9-b2c3-734fc75aad6b",
+										"locations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submit a Location (with Thing)",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": \t39.1066093,\r\n\t\"lon\": \t-94.6002426,\r\n\t\"altitude\": \"100\",\r\n\t\"type\": \"emergency\",\r\n\t\"things\": [\"b772\"]\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/2cc95b5b-bfc2-49f9-b2c3-734fc75aad6b/locations",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"2cc95b5b-bfc2-49f9-b2c3-734fc75aad6b",
+										"locations"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "QA Test Org",
+			"item": [
+				{
+					"name": "Setup",
+					"item": [
+						{
+							"name": "Submit Point - vehicle 1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": 43.702738, \r\n\t\"lon\": -70.318137,\r\n\t\"course\": 280,\r\n\t\"alt\": 10,\r\n\t\"speed\": 45,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": false,\r\n\t\"accelerometer\": [{\"x\":0.06153846,\"y\":0.69157511,\"z\":0.62124544}]\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/{{dash_reg}}/things/test_thing_1/points",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"{{dash_reg}}",
+										"things",
+										"test_thing_1",
+										"points"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submit Point - vehicle 2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": 43.6649036, \r\n\t\"lon\": -70.251841,\r\n\t\"course\": 285,\r\n\t\"alt\": 10,\r\n\t\"speed\": 45,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": true\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/{{dash_reg}}/things/test_thing_2/points",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"{{dash_reg}}",
+										"things",
+										"test_thing_2",
+										"points"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submit Point - vehicle 3",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": 43.6601670, \r\n\t\"lon\": -70.250193,\r\n\t\"course\": 285,\r\n\t\"alt\": 10,\r\n\t\"speed\": 45,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": true\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/{{dash_reg}}/things/test_thing_3/points",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"{{dash_reg}}",
+										"things",
+										"test_thing_3",
+										"points"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submit Point - vehicle 4",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": 43.6536014, \r\n\t\"lon\": -70.2714461,\r\n\t\"course\": 285,\r\n\t\"alt\": 10,\r\n\t\"speed\": 45,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": false\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/{{dash_reg}}/things/test_thing_4/points",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"{{dash_reg}}",
+										"things",
+										"test_thing_4",
+										"points"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submit Point - vehicle 5",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": 43.6587076, \r\n\t\"lon\": -70.2948433,\r\n\t\"course\": 265,\r\n\t\"alt\": 10,\r\n\t\"speed\": 45,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": true\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/{{dash_reg}}/things/test_thing_5/points",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"{{dash_reg}}",
+										"things",
+										"test_thing_5",
+										"points"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submit Point - vehicle 6",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": 43.6839063, \r\n\t\"lon\": -70.2912289,\r\n\t\"course\": 165,\r\n\t\"alt\": 10,\r\n\t\"speed\": 45,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": true\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/{{dash_reg}}/things/test_thing_6/points",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"{{dash_reg}}",
+										"things",
+										"test_thing_6",
+										"points"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submit Point - vehicle 7",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": 43.706159, \r\n\t\"lon\": -70.2412019,\r\n\t\"course\": 359,\r\n\t\"alt\": 10,\r\n\t\"speed\": 45,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": false\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/{{dash_reg}}/things/test_thing_7/points",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"{{dash_reg}}",
+										"things",
+										"test_thing_7",
+										"points"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submit Point - vehicle 8",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": 43.6565559, \r\n\t\"lon\": -70.1981014,\r\n\t\"course\": 170,\r\n\t\"alt\": 10,\r\n\t\"speed\": 45,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": false\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/{{dash_reg}}/things/test_thing_8/points",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"{{dash_reg}}",
+										"things",
+										"test_thing_8",
+										"points"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submit Point - vehicle 9",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": 43.699096,\r\n\t\"lon\": -70.288641,\r\n\t\"course\": 12,\r\n\t\"alt\": 10,\r\n\t\"speed\": 45,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": true\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/{{dash_reg}}/things/test_thing_9/points",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"{{dash_reg}}",
+										"things",
+										"test_thing_9",
+										"points"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submit Point - vehicle 10",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": 43.679765,\r\n\t\"lon\": -70.272168,\r\n\t\"course\": 245,\r\n\t\"alt\": 10,\r\n\t\"speed\": 45,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": true\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/{{dash_reg}}/things/test_thing_10/points",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"{{dash_reg}}",
+										"things",
+										"test_thing_10",
+										"points"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submit Location (with Thing)",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": 43.665026,\r\n\t\"lon\": -70.251905,\r\n\t\"altitude\": \"100\",\r\n\t\"type\": \"emergency\",\r\n\t\"things\": [\"test_thing_2\"]\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/{{dash_reg}}/locations",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"{{dash_reg}}",
+										"locations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submit Location (with Thing)",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": 43.660199,\r\n\t\"lon\": -70.250112,\r\n\t\"altitude\": \"100\",\r\n\t\"type\": \"emergency\",\r\n\t\"things\": [\"test_thing_3\"]\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/{{dash_reg}}/locations",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"{{dash_reg}}",
+										"locations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Asset (vehicle 10 defaults)",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"type\": \"police\",\n    \"subtype\": \"patrol\",\n    \"name\": \"test_thing_10\",\n    \"registry_number\": \"test-reg\",\n    \"vin_number\": \"JM1CW2BL1D0160781\",\n    \"license_plate_number\": \"test-plate\",\n    \"in_service\": true,\n    \"is_publicly_alerting\": false,\n    \"is_r2r_enabled\": false\n}"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/{{dash_reg}}/things/test_thing_10",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"{{dash_reg}}",
+										"things",
+										"test_thing_10"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "WS Tests",
+					"item": [
+						{
+							"name": "Assets",
+							"item": [
+								{
+									"name": "Group",
+									"item": [
+										{
+											"name": "Static",
+											"item": [
+												{
+													"name": "Point - grouping 1",
+													"event": [
+														{
+															"listen": "test",
+															"script": {
+																"exec": [
+																	""
+																],
+																"type": "text/javascript"
+															}
+														}
+													],
+													"request": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "ACCEPT",
+																"value": "application/vnd.haasalert.com; version=2"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n\t\"lat\": 43.657900,\r\n\t\"lon\": -70.197507,\r\n\t\"course\": 245,\r\n\t\"alt\": 10,\r\n\t\"speed\": 1,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": true\r\n}\r\n"
+														},
+														"url": {
+															"raw": "{{url}}/organizations/{{dash_reg_test_org_id}}/things/grouping_ambo_1/points",
+															"host": [
+																"{{url}}"
+															],
+															"path": [
+																"organizations",
+																"{{dash_reg_test_org_id}}",
+																"things",
+																"grouping_ambo_1",
+																"points"
+															]
+														}
+													},
+													"response": []
+												},
+												{
+													"name": "Point - grouping 2",
+													"event": [
+														{
+															"listen": "test",
+															"script": {
+																"exec": [
+																	""
+																],
+																"type": "text/javascript"
+															}
+														}
+													],
+													"request": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "ACCEPT",
+																"value": "application/vnd.haasalert.com; version=2"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n\t\"lat\": 43.657139,\r\n\t\"lon\": -70.196579,\r\n\t\"course\": 90,\r\n\t\"alt\": 10,\r\n\t\"speed\": 0,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": false\r\n}\r\n"
+														},
+														"url": {
+															"raw": "{{url}}/organizations/{{dash_reg_test_org_id}}/things/grouping_ambo_2/points",
+															"host": [
+																"{{url}}"
+															],
+															"path": [
+																"organizations",
+																"{{dash_reg_test_org_id}}",
+																"things",
+																"grouping_ambo_2",
+																"points"
+															]
+														}
+													},
+													"response": []
+												}
+											]
+										},
+										{
+											"name": "Move in to",
+											"item": [
+												{
+													"name": "Point 1 - ambo 3 (active)",
+													"event": [
+														{
+															"listen": "test",
+															"script": {
+																"exec": [
+																	""
+																],
+																"type": "text/javascript"
+															}
+														}
+													],
+													"request": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "ACCEPT",
+																"value": "application/vnd.haasalert.com; version=2"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n\t\"lat\": 43.65885615,\r\n\t\"lon\": -70.19314316,\r\n\t\"course\": 60,\r\n\t\"alt\": 10,\r\n\t\"speed\": 5,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": true\r\n}\r\n"
+														},
+														"url": {
+															"raw": "{{url}}/organizations/{{dash_reg_test_org_id}}/things/grouping_ambo_3/points",
+															"host": [
+																"{{url}}"
+															],
+															"path": [
+																"organizations",
+																"{{dash_reg_test_org_id}}",
+																"things",
+																"grouping_ambo_3",
+																"points"
+															]
+														}
+													},
+													"response": []
+												},
+												{
+													"name": "Point 2 - ambo 3 (active)",
+													"event": [
+														{
+															"listen": "test",
+															"script": {
+																"exec": [
+																	""
+																],
+																"type": "text/javascript"
+															}
+														}
+													],
+													"request": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "ACCEPT",
+																"value": "application/vnd.haasalert.com; version=2"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n\t\"lat\": 43.65847635,\r\n\t\"lon\": -70.19476261,\r\n\t\"course\": 60,\r\n\t\"alt\": 10,\r\n\t\"speed\": 5,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": true\r\n}\r\n"
+														},
+														"url": {
+															"raw": "{{url}}/organizations/{{dash_reg_test_org_id}}/things/grouping_ambo_3/points",
+															"host": [
+																"{{url}}"
+															],
+															"path": [
+																"organizations",
+																"{{dash_reg_test_org_id}}",
+																"things",
+																"grouping_ambo_3",
+																"points"
+															]
+														}
+													},
+													"response": []
+												},
+												{
+													"name": "Point 3 - ambo 3 (active)",
+													"event": [
+														{
+															"listen": "test",
+															"script": {
+																"exec": [
+																	""
+																],
+																"type": "text/javascript"
+															}
+														}
+													],
+													"request": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "ACCEPT",
+																"value": "application/vnd.haasalert.com; version=2"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n\t\"lat\": 43.6581075, \r\n\t\"lon\": -70.1965682,\r\n\t\"course\": 60,\r\n\t\"alt\": 10,\r\n\t\"speed\": 5,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": true\r\n}\r\n"
+														},
+														"url": {
+															"raw": "{{url}}/organizations/{{dash_reg_test_org_id}}/things/grouping_ambo_3/points",
+															"host": [
+																"{{url}}"
+															],
+															"path": [
+																"organizations",
+																"{{dash_reg_test_org_id}}",
+																"things",
+																"grouping_ambo_3",
+																"points"
+															]
+														}
+													},
+													"response": []
+												},
+												{
+													"name": "Point 1 - ambo 4 (inactive)",
+													"event": [
+														{
+															"listen": "test",
+															"script": {
+																"exec": [
+																	""
+																],
+																"type": "text/javascript"
+															}
+														}
+													],
+													"request": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "ACCEPT",
+																"value": "application/vnd.haasalert.com; version=2"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n\t\"lat\": 43.65819185,\r\n\t\"lon\": -70.19221297,\r\n\t\"course\": 60,\r\n\t\"alt\": 10,\r\n\t\"speed\": 5,\r\n\t\"accuracy\": 1,\r\n\t\"is_active\": false\r\n}\r\n"
+														},
+														"url": {
+															"raw": "{{url}}/organizations/{{dash_reg_test_org_id}}/things/grouping_ambo_4/points",
+															"host": [
+																"{{url}}"
+															],
+															"path": [
+																"organizations",
+																"{{dash_reg_test_org_id}}",
+																"things",
+																"grouping_ambo_4",
+																"points"
+															]
+														}
+													},
+													"response": []
+												},
+												{
+													"name": "Point 2 - ambo 4 (inactive)",
+													"event": [
+														{
+															"listen": "test",
+															"script": {
+																"exec": [
+																	""
+																],
+																"type": "text/javascript"
+															}
+														}
+													],
+													"request": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "ACCEPT",
+																"value": "application/vnd.haasalert.com; version=2"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n\t\"lat\": 43.6579917,\r\n\t\"lon\": -70.1942827,\r\n\t\"course\": 60,\r\n\t\"alt\": 10,\r\n\t\"speed\": 5,\r\n\t\"accuracy\": 1,\r\n\t\"is_active\": false\r\n}\r\n"
+														},
+														"url": {
+															"raw": "{{url}}/organizations/{{dash_reg_test_org_id}}/things/grouping_ambo_4/points",
+															"host": [
+																"{{url}}"
+															],
+															"path": [
+																"organizations",
+																"{{dash_reg_test_org_id}}",
+																"things",
+																"grouping_ambo_4",
+																"points"
+															]
+														}
+													},
+													"response": []
+												},
+												{
+													"name": "Point 3 - ambo 4 (inactive)",
+													"event": [
+														{
+															"listen": "test",
+															"script": {
+																"exec": [
+																	""
+																],
+																"type": "text/javascript"
+															}
+														}
+													],
+													"request": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "ACCEPT",
+																"value": "application/vnd.haasalert.com; version=2"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n\t\"lat\": 43.65714341,\r\n\t\"lon\": -70.1960616,\r\n\t\"course\": 60,\r\n\t\"alt\": 10,\r\n\t\"speed\": 5,\r\n\t\"accuracy\": 1,\r\n\t\"is_active\": false\r\n}\r\n"
+														},
+														"url": {
+															"raw": "{{url}}/organizations/{{dash_reg_test_org_id}}/things/grouping_ambo_4/points",
+															"host": [
+																"{{url}}"
+															],
+															"path": [
+																"organizations",
+																"{{dash_reg_test_org_id}}",
+																"things",
+																"grouping_ambo_4",
+																"points"
+															]
+														}
+													},
+													"response": []
+												}
+											]
+										},
+										{
+											"name": "Move out of",
+											"item": [
+												{
+													"name": "Point 1 - ambo 3 (active)",
+													"event": [
+														{
+															"listen": "test",
+															"script": {
+																"exec": [
+																	""
+																],
+																"type": "text/javascript"
+															}
+														}
+													],
+													"request": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "ACCEPT",
+																"value": "application/vnd.haasalert.com; version=2"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n\t\"lat\": 43.6581075, \r\n\t\"lon\": -70.1965682,\r\n\t\"course\": 60,\r\n\t\"alt\": 10,\r\n\t\"speed\": 5,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": true\r\n}\r\n"
+														},
+														"url": {
+															"raw": "{{url}}/organizations/{{dash_reg_test_org_id}}/things/grouping_ambo_3/points",
+															"host": [
+																"{{url}}"
+															],
+															"path": [
+																"organizations",
+																"{{dash_reg_test_org_id}}",
+																"things",
+																"grouping_ambo_3",
+																"points"
+															]
+														}
+													},
+													"response": []
+												},
+												{
+													"name": "Point 2 - ambo 3 (active)",
+													"event": [
+														{
+															"listen": "test",
+															"script": {
+																"exec": [
+																	""
+																],
+																"type": "text/javascript"
+															}
+														}
+													],
+													"request": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "ACCEPT",
+																"value": "application/vnd.haasalert.com; version=2"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n\t\"lat\": 43.65847635,\r\n\t\"lon\": -70.19476261,\r\n\t\"course\": 60,\r\n\t\"alt\": 10,\r\n\t\"speed\": 5,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": true\r\n}\r\n"
+														},
+														"url": {
+															"raw": "{{url}}/organizations/{{dash_reg_test_org_id}}/things/grouping_ambo_3/points",
+															"host": [
+																"{{url}}"
+															],
+															"path": [
+																"organizations",
+																"{{dash_reg_test_org_id}}",
+																"things",
+																"grouping_ambo_3",
+																"points"
+															]
+														}
+													},
+													"response": []
+												},
+												{
+													"name": "Point 3 - ambo 3 (active)",
+													"event": [
+														{
+															"listen": "test",
+															"script": {
+																"exec": [
+																	""
+																],
+																"type": "text/javascript"
+															}
+														}
+													],
+													"request": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "ACCEPT",
+																"value": "application/vnd.haasalert.com; version=2"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n\t\"lat\": 43.65885615,\r\n\t\"lon\": -70.19314316,\r\n\t\"course\": 60,\r\n\t\"alt\": 10,\r\n\t\"speed\": 5,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": true\r\n}\r\n"
+														},
+														"url": {
+															"raw": "{{url}}/organizations/{{dash_reg_test_org_id}}/things/grouping_ambo_3/points",
+															"host": [
+																"{{url}}"
+															],
+															"path": [
+																"organizations",
+																"{{dash_reg_test_org_id}}",
+																"things",
+																"grouping_ambo_3",
+																"points"
+															]
+														}
+													},
+													"response": []
+												},
+												{
+													"name": "Point 1 - ambo 4 (inactive)",
+													"event": [
+														{
+															"listen": "test",
+															"script": {
+																"exec": [
+																	""
+																],
+																"type": "text/javascript"
+															}
+														}
+													],
+													"request": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "ACCEPT",
+																"value": "application/vnd.haasalert.com; version=2"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n\t\"lat\": 43.65714341,\r\n\t\"lon\": -70.1960616,\r\n\t\"course\": 60,\r\n\t\"alt\": 10,\r\n\t\"speed\": 5,\r\n\t\"accuracy\": 1,\r\n\t\"is_active\": false\r\n}\r\n"
+														},
+														"url": {
+															"raw": "{{url}}/organizations/{{dash_reg_test_org_id}}/things/grouping_ambo_4/points",
+															"host": [
+																"{{url}}"
+															],
+															"path": [
+																"organizations",
+																"{{dash_reg_test_org_id}}",
+																"things",
+																"grouping_ambo_4",
+																"points"
+															]
+														}
+													},
+													"response": []
+												},
+												{
+													"name": "Point 2 - ambo 4 (inactive)",
+													"event": [
+														{
+															"listen": "test",
+															"script": {
+																"exec": [
+																	""
+																],
+																"type": "text/javascript"
+															}
+														}
+													],
+													"request": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "ACCEPT",
+																"value": "application/vnd.haasalert.com; version=2"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n\t\"lat\": 43.6579917,\r\n\t\"lon\": -70.1942827,\r\n\t\"course\": 60,\r\n\t\"alt\": 10,\r\n\t\"speed\": 5,\r\n\t\"accuracy\": 1,\r\n\t\"is_active\": false\r\n}\r\n"
+														},
+														"url": {
+															"raw": "{{url}}/organizations/{{dash_reg_test_org_id}}/things/grouping_ambo_4/points",
+															"host": [
+																"{{url}}"
+															],
+															"path": [
+																"organizations",
+																"{{dash_reg_test_org_id}}",
+																"things",
+																"grouping_ambo_4",
+																"points"
+															]
+														}
+													},
+													"response": []
+												},
+												{
+													"name": "Point 3 - ambo 4 (inactive)",
+													"event": [
+														{
+															"listen": "test",
+															"script": {
+																"exec": [
+																	""
+																],
+																"type": "text/javascript"
+															}
+														}
+													],
+													"request": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "ACCEPT",
+																"value": "application/vnd.haasalert.com; version=2"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n\t\"lat\": 43.65819185,\r\n\t\"lon\": -70.19221297,\r\n\t\"course\": 60,\r\n\t\"alt\": 10,\r\n\t\"speed\": 5,\r\n\t\"accuracy\": 1,\r\n\t\"is_active\": false\r\n}\r\n"
+														},
+														"url": {
+															"raw": "{{url}}/organizations/{{dash_reg_test_org_id}}/things/grouping_ambo_4/points",
+															"host": [
+																"{{url}}"
+															],
+															"path": [
+																"organizations",
+																"{{dash_reg_test_org_id}}",
+																"things",
+																"grouping_ambo_4",
+																"points"
+															]
+														}
+													},
+													"response": []
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Point - vehicle 10",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "ACCEPT",
+												"value": "application/vnd.haasalert.com; version=2"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"lat\": 43.678741,\r\n\t\"lon\": -70.273528,\r\n\t\"course\": 200,\r\n\t\"speed\": 24,\r\n\t\"is_active\": false\r\n    \r\n}\r\n\r\n"
+										},
+										"url": {
+											"raw": "{{url}}/organizations/{{dash_reg}}/things/test_thing_10/points",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"organizations",
+												"{{dash_reg}}",
+												"things",
+												"test_thing_10",
+												"points"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Heartbeat (offline thing)",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "ACCEPT",
+												"value": "application/vnd.haasalert.com; version=2"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"lat\": \t55.658342,\n    \"lon\": -70.256306,\n    \"speed\": 10,\n    \"course\": 90,\n    \"is_offline\": true,\n    \"is_pending\": false,\n    \"is_online\": false\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/organizations/{{dash_reg}}/things/test_thing_offline/heartbeats",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"organizations",
+												"{{dash_reg}}",
+												"things",
+												"test_thing_offline",
+												"heartbeats"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Asset",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "ACCEPT",
+												"value": "application/vnd.haasalert.com; version=2"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"type\": \"fire\",\n    \"subtype\": \"ladder\",\n    \"name\": \"test-name-UPDATE\",\n    \"registry_number\": \"test-reg-UPATE\",\n    \"vin_number\": \"test-vin-UPDATE\",\n    \"license_plate_number\": \"test-plate-UPDATE\",\n    \"in_service\": false,\n    \"is_publicly_alerting\": true,\n    \"is_r2r_enabled\": true\n}"
+										},
+										"url": {
+											"raw": "{{url}}/organizations/1377a295-7d70-4e41-a086-87c39f243fd7/things/test_thing_10",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"organizations",
+												"1377a295-7d70-4e41-a086-87c39f243fd7",
+												"things",
+												"test_thing_10"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Closures",
+							"item": [
+								{
+									"name": "Heartbeat (offline closure)",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJIQUFTIEFsZXJ0IiwiaWF0IjoxNjk4MDg2ODMxLCJleHAiOjE2OTgxNzMyMzEsImp0aSI6IjE2MzdlNzhkLTYyOWMtNDJhNy05NWNhLThhZTg1ZWRmNTczMiIsInVzZXIiOnsiaWQiOiIzOTQ5MjEzMi02ZWRiLTQ2ZDEtYmRkYy01NGNlNzA5MGNjNzIiLCJlbWFpbCI6InFhdGVzdEBoYWFzYWxlcnQuY29tIiwib3JnYW5pemF0aW9uX2lkIjoiMTM3N2EyOTUtN2Q3MC00ZTQxLWEwODYtODdjMzlmMjQzZmQ3IiwiZmVhdHVyZXMiOnsic2FtbCI6ZmFsc2V9LCJzZXJ2aWNlcyI6WyJmbGVldF9mdXNpb24iLCJkcml2ZSIsInNhZmV0eV9jbG91ZCIsImhhX2RpcmVjdCIsImFsZXJ0X3NlcnZpY2UiLCJ3emR4X3B1Ymxpc2hlciIsInd6ZHhfaW5nZXN0b3IiXX19.1NmhLjvdyfiIEleDtrS7_UlGEfiWxptr6qkHwvfZ5aky_hGtw8GpNwiF0WdsuR6JJ4NjKOQr80I8ifj8GAz1JQ",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "ACCEPT",
+												"value": "application/vnd.haasalert.com; version=2"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"lat\": \t43.659342,\n    \"lon\": -70.256306,\n    \"speed\": 10,\n    \"course\": 90,\n    \"is_offline\": false,\n    \"is_pending\": false,\n    \"is_online\": true\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/organizations/{{dash_reg}}/things/closure_thing_2/heartbeats",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"organizations",
+												"{{dash_reg}}",
+												"things",
+												"closure_thing_2",
+												"heartbeats"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Activate Closure 1",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "ACCEPT",
+												"value": "application/vnd.haasalert.com; version=2"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"type\": \"emergency\",\r\n\t\"lat\": 43.66016,\r\n\t\"lon\": -70.25266,\r\n\t\"things\": [\"closure_thing_1\"]\r\n}"
+										},
+										"url": {
+											"raw": "{{url}}/organizations/{{dash_reg}}/locations",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"organizations",
+												"{{dash_reg}}",
+												"locations"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Deactivate Closure 1",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "ACCEPT",
+												"value": "application/vnd.haasalert.com; version=2"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"lat\": 43.66016,\r\n\t\"lon\": -70.25266,\r\n\t\"course\": 245,\r\n\t\"alt\": 10,\r\n\t\"speed\": 45,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": false\r\n}\r\n"
+										},
+										"url": {
+											"raw": "{{url}}/organizations/{{dash_reg}}/things/closure_thing_1/points",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"organizations",
+												"{{dash_reg}}",
+												"things",
+												"closure_thing_1",
+												"points"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Closure",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"// get current time\r",
+													"const current_date_time = new Date();\r",
+													"// add to vars to use in request\r",
+													"pm.variables.set(\"current_date_time\", current_date_time);\r",
+													"// get end time\r",
+													"const end_date_time = new Date(current_date_time.getTime() + (5 * 60 * 1000));\r",
+													"pm.variables.set(\"end_date_time\", end_date_time);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/vnd.haasalert.com; version=2",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"is_active\": true,\r\n    \"closure_type\": \"manual\",\r\n    \"description\": \"be test closure!!!\",\r\n    \"alert_message\": \"ramp closed\",\r\n    \"user_route\": [\r\n        {\"lat\": 43.6661154, \"lon\": -70.3288929},\r\n        {\"lat\": 43.6652998, \"lon\": -70.3294923},\r\n        {\"lat\": 43.6646237, \"lon\": -70.3299799}, \r\n        {\"lat\": 43.6644253, \"lon\": -70.3307418}, \r\n        {\"lat\": 43.6646090, \"lon\": -70.3313208}, \r\n        {\"lat\": 43.6650499, \"lon\": -70.3315951},\r\n        {\"lat\": 43.6655423, \"lon\": -70.3315646}\r\n    ],\r\n    \"impacted_lanes\": [1],\r\n    \"is_in_service\": true,\r\n    \"direction\": \"S\",\r\n    \"start_time\": \"{{current_date_time}}\",\r\n    \"end_time\": \"{{end_date_time}}\"\r\n}"
+										},
+										"url": {
+											"raw": "{{url}}/organizations/{{dash_reg}}/closures",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"organizations",
+												"{{dash_reg}}",
+												"closures"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Closure Copy",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"// get current time\r",
+													"const current_date_time = new Date();\r",
+													"// add to vars to use in request\r",
+													"pm.variables.set(\"current_date_time\", current_date_time);\r",
+													"// get end time\r",
+													"const end_date_time = new Date(current_date_time.getTime() + (5 * 60 * 1000));\r",
+													"pm.variables.set(\"end_date_time\", end_date_time);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/vnd.haasalert.com; version=2",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"is_active\": true,\r\n    \"closure_type\": \"manual\",\r\n    \"description\": \"HB-661\",\r\n    \"alert_message\": \"ramp closed\",\r\n   \"user_route\": [{\"lat\": 42.047450, \"lon\": -87.835116}, {\"lat\": 42.047314, \"lon\": -87.841001}],\r\n    \"impacted_lanes\": [1],\r\n    \"is_in_service\": true,\r\n    \"direction\": \"S\",\r\n    \"start_time\": \"{{current_date_time}}\",\r\n    \"end_time\": \"{{end_date_time}}\"\r\n}"
+										},
+										"url": {
+											"raw": "{{url}}/organizations/{{dash_reg}}/closures",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"organizations",
+												"{{dash_reg}}",
+												"closures"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Closure",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"// get current time\r",
+													"const current_date_time = new Date();\r",
+													"// add to vars to use in request\r",
+													"pm.variables.set(\"current_date_time\", current_date_time);\r",
+													"// get end time\r",
+													"const end_date_time = new Date(current_date_time.getTime() + (30 * 60 * 1000));\r",
+													"pm.variables.set(\"end_date_time\", end_date_time);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/vnd.haasalert.com; version=2",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"is_active\": false,\n    \"alert_message\": \"ramp closed ahead - UPDATE\",\n    \"impacted_lanes\": [1, 2],\n    \"is_in_service\": false,\n    \"vehicle_impact\": \"all-lanes-closed\",\n    \"description\": \"be test closure! Update\",\n    \"direction\": \"N\"\n}"
+										},
+										"url": {
+											"raw": "{{url}}/organizations/{{dash_reg}}/closures/5bc4f13a-9f33-4142-9175-c6dbb6af348a",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"organizations",
+												"{{dash_reg}}",
+												"closures",
+												"5bc4f13a-9f33-4142-9175-c6dbb6af348a"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Closure Copy",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"// get current time\r",
+													"const current_date_time = new Date();\r",
+													"// add to vars to use in request\r",
+													"pm.variables.set(\"current_date_time\", current_date_time);\r",
+													"// get end time\r",
+													"const end_date_time = new Date(current_date_time.getTime() + (30 * 60 * 1000));\r",
+													"pm.variables.set(\"end_date_time\", end_date_time);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/vnd.haasalert.com; version=2",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\n    \"closure_type\": \"manual\"\n\n}"
+										},
+										"url": {
+											"raw": "{{url}}/organizations/{{dash_reg}}/closures/bae8ba50-5a5b-4ca3-8e6f-60630f0f748a",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"organizations",
+												"{{dash_reg}}",
+												"closures",
+												"bae8ba50-5a5b-4ca3-8e6f-60630f0f748a"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Closure - BROKEN",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"// get current time\r",
+													"const current_date_time = new Date();\r",
+													"// add to vars to use in request\r",
+													"pm.variables.set(\"current_date_time\", current_date_time);\r",
+													"// get end time\r",
+													"const end_date_time = new Date(current_date_time.getTime() + (30 * 60 * 1000));\r",
+													"pm.variables.set(\"end_date_time\", end_date_time);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJIQUFTIEFsZXJ0IiwiaWF0IjoxNjk4MDg2ODMxLCJleHAiOjE2OTgxNzMyMzEsImp0aSI6IjE2MzdlNzhkLTYyOWMtNDJhNy05NWNhLThhZTg1ZWRmNTczMiIsInVzZXIiOnsiaWQiOiIzOTQ5MjEzMi02ZWRiLTQ2ZDEtYmRkYy01NGNlNzA5MGNjNzIiLCJlbWFpbCI6InFhdGVzdEBoYWFzYWxlcnQuY29tIiwib3JnYW5pemF0aW9uX2lkIjoiMTM3N2EyOTUtN2Q3MC00ZTQxLWEwODYtODdjMzlmMjQzZmQ3IiwiZmVhdHVyZXMiOnsic2FtbCI6ZmFsc2V9LCJzZXJ2aWNlcyI6WyJmbGVldF9mdXNpb24iLCJkcml2ZSIsInNhZmV0eV9jbG91ZCIsImhhX2RpcmVjdCIsImFsZXJ0X3NlcnZpY2UiLCJ3emR4X3B1Ymxpc2hlciIsInd6ZHhfaW5nZXN0b3IiXX19.1NmhLjvdyfiIEleDtrS7_UlGEfiWxptr6qkHwvfZ5aky_hGtw8GpNwiF0WdsuR6JJ4NjKOQr80I8ifj8GAz1JQ",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/vnd.haasalert.com; version=2",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"is_active\": false,\n    \"alert_message\": \"ramp closed ahead - UPDATE\",\n    \"impacted_lanes\": [1, 2],\n    \"is_in_service\": false,\n    \"vehicle_impact\": \"all-lanes-closed\",\n    \"description\": \"test feed closure - updated\",\n    \"location_method\": \"channel-device-method\",\n    \"is_wzdx_compliant\": true,\n    \"group_id\": \"group1234\",\n    \"start_time\": \"{{current_date_time}}\",\n    \"end_time\": \"{{end_date_time}}\",\n    \"direction\": \"N\"\n}"
+										},
+										"url": {
+											"raw": "{{url}}/organizations/{{dash_reg}}/closures/YNafOVulFjdv10MQ",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"organizations",
+												"{{dash_reg}}",
+												"closures",
+												"YNafOVulFjdv10MQ"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Closure",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJIQUFTIEFsZXJ0IiwiaWF0IjoxNjk4MDg2ODMxLCJleHAiOjE2OTgxNzMyMzEsImp0aSI6IjE2MzdlNzhkLTYyOWMtNDJhNy05NWNhLThhZTg1ZWRmNTczMiIsInVzZXIiOnsiaWQiOiIzOTQ5MjEzMi02ZWRiLTQ2ZDEtYmRkYy01NGNlNzA5MGNjNzIiLCJlbWFpbCI6InFhdGVzdEBoYWFzYWxlcnQuY29tIiwib3JnYW5pemF0aW9uX2lkIjoiMTM3N2EyOTUtN2Q3MC00ZTQxLWEwODYtODdjMzlmMjQzZmQ3IiwiZmVhdHVyZXMiOnsic2FtbCI6ZmFsc2V9LCJzZXJ2aWNlcyI6WyJmbGVldF9mdXNpb24iLCJkcml2ZSIsInNhZmV0eV9jbG91ZCIsImhhX2RpcmVjdCIsImFsZXJ0X3NlcnZpY2UiLCJ3emR4X3B1Ymxpc2hlciIsInd6ZHhfaW5nZXN0b3IiXX19.1NmhLjvdyfiIEleDtrS7_UlGEfiWxptr6qkHwvfZ5aky_hGtw8GpNwiF0WdsuR6JJ4NjKOQr80I8ifj8GAz1JQ",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/vnd.haasalert.com; version=2",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{url}}/organizations/{{dash_reg}}/closures/9kGFjwTNgVrois47",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"organizations",
+												"{{dash_reg}}",
+												"closures",
+												"9kGFjwTNgVrois47"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "New Request",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJIQUFTIEFsZXJ0IiwiaWF0IjoxNjk4Nzc1NzczLCJleHAiOjE2OTg4NjIxNzMsImp0aSI6ImFkZTVjMTM3LTRlNjktNDRhZS05ZTE2LTFhYjk3ODAwNmZmNSIsInVzZXIiOnsiaWQiOiI3MWY1NTY1ZC0xNTk4LTQyMTEtOTQwNi0xN2EyYmZlYjhlZDAiLCJlbWFpbCI6InFhdGVzdEBoYWFzYWxlcnQuY29tIiwib3JnYW5pemF0aW9uX2lkIjoiZTNmNTEwNjEtZDAzNy00ZTY0LWE1MDYtOWM5MTZmNzMwNDc1IiwiZmVhdHVyZXMiOnsic2FtbCI6ZmFsc2V9LCJzZXJ2aWNlcyI6WyJmbGVldF9mdXNpb24iLCJkcml2ZSIsInNhZmV0eV9jbG91ZCIsImhhX2RpcmVjdCIsImFsZXJ0X3NlcnZpY2UiLCJ3emR4X3B1Ymxpc2hlciIsInd6ZHhfaW5nZXN0b3IiXX19.LGnnpUIM1Aq6UtOZPcQtrBZnhFRtvNrmMCBNXSw0j2VteIbqoShE72Ib_RwRYVhCalYsbzeGsdo5VoJPDmo9iw",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{dashboard_be_url}}/api/things/34d7961f-9a29-4cea-ba30-3f18261815f0/trips?run_date=2019-12-16",
+											"host": [
+												"{{dashboard_be_url}}"
+											],
+											"path": [
+												"api",
+												"things",
+												"34d7961f-9a29-4cea-ba30-3f18261815f0",
+												"trips"
+											],
+											"query": [
+												{
+													"key": "run_date",
+													"value": "2019-12-16"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Locations",
+							"item": [
+								{
+									"name": "Add/Remove Things",
+									"item": [
+										{
+											"name": "Submit Location (no Thing)",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"pm.collectionVariables.set(\"remove_thing_loc_id\", pm.response.json().id);"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													},
+													{
+														"key": "ACCEPT",
+														"value": "application/vnd.haasalert.com; version=2"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n\t\"lat\": 43.643340,\r\n\t\"lon\": -70.256708,\r\n\t\"altitude\": \"100\",\r\n\t\"type\": \"emergency\"\r\n}\r\n"
+												},
+												"url": {
+													"raw": "{{url}}/organizations/1377a295-7d70-4e41-a086-87c39f243fd7/locations",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"organizations",
+														"1377a295-7d70-4e41-a086-87c39f243fd7",
+														"locations"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Add Things",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "ACCEPT",
+														"value": "application/vnd.haasalert.com; version=2"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"things_to_add\": [\"test_thing_4\", \"test_thing_5\"]\n}"
+												},
+												"url": {
+													"raw": "{{url}}/organizations/1377a295-7d70-4e41-a086-87c39f243fd7/locations/{{remove_thing_loc_id}}",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"organizations",
+														"1377a295-7d70-4e41-a086-87c39f243fd7",
+														"locations",
+														"{{remove_thing_loc_id}}"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Remove 1 Thing",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "ACCEPT",
+														"value": "application/vnd.haasalert.com; version=2"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"things_to_remove\": [\"test_thing_4\"]\n}"
+												},
+												"url": {
+													"raw": "{{url}}/organizations/1377a295-7d70-4e41-a086-87c39f243fd7/locations/{{remove_thing_loc_id}}",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"organizations",
+														"1377a295-7d70-4e41-a086-87c39f243fd7",
+														"locations",
+														"{{remove_thing_loc_id}}"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Submit Point to Deactivate",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "ACCEPT",
+														"value": "application/vnd.haasalert.com; version=2"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n\t\"lat\": 43.678741,\r\n\t\"lon\": -70.273528,\r\n\t\"course\": 200,\r\n\t\"speed\": 24,\r\n\t\"is_active\": false\r\n}\r\n\r\n"
+												},
+												"url": {
+													"raw": "{{url}}/organizations/1377a295-7d70-4e41-a086-87c39f243fd7/things/test_thing_5/points",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"organizations",
+														"1377a295-7d70-4e41-a086-87c39f243fd7",
+														"things",
+														"test_thing_5",
+														"points"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Submit Location (no Thing)",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "ACCEPT",
+												"value": "application/vnd.haasalert.com; version=2"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"external_id\": \"test_2023_09_08_2023\",\r\n\t\"lat\": 43.643340,\r\n\t\"lon\": -70.256708,\r\n\t\"altitude\": \"100\",\r\n\t\"type\": \"emergency\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "{{url}}/organizations/1377a295-7d70-4e41-a086-87c39f243fd7/locations",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"organizations",
+												"1377a295-7d70-4e41-a086-87c39f243fd7",
+												"locations"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Location 1",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "ACCEPT",
+												"value": "application/vnd.haasalert.com; version=2"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"type\": \"construction\",\n    \"alert_message\": \"test alert message 2!\",\n\t\"lat\": \t43.6596556, \n\t\"lon\": \t-70.249798\n}"
+										},
+										"url": {
+											"raw": "{{url}}/organizations/1377a295-7d70-4e41-a086-87c39f243fd7/locations/test_2023_09_08_2023",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"organizations",
+												"1377a295-7d70-4e41-a086-87c39f243fd7",
+												"locations",
+												"test_2023_09_08_2023"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Submit Location (w Thing)",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "ACCEPT",
+												"value": "application/vnd.haasalert.com; version=2"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"lat\": 43.653340,\r\n\t\"lon\": -70.256508,\r\n\t\"altitude\": \"100\",\r\n\t\"type\": \"emergency\",\r\n    \"things\": [\"test_thing_2\"]\r\n}\r\n"
+										},
+										"url": {
+											"raw": "{{url}}/organizations/1377a295-7d70-4e41-a086-87c39f243fd7/locations",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"organizations",
+												"1377a295-7d70-4e41-a086-87c39f243fd7",
+												"locations"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Location 2",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "ACCEPT",
+												"value": "application/vnd.haasalert.com; version=2"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"things_to_remove\": [\"test_thing_2\"]\n}"
+										},
+										"url": {
+											"raw": "{{url}}/organizations/1377a295-7d70-4e41-a086-87c39f243fd7/locations/c249bd1a-67e7-4720-8f1f-f97a4201a5c2",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"organizations",
+												"1377a295-7d70-4e41-a086-87c39f243fd7",
+												"locations",
+												"c249bd1a-67e7-4720-8f1f-f97a4201a5c2"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Deactivate Location",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "ACCEPT",
+												"value": "application/vnd.haasalert.com; version=2"
+											}
+										],
+										"url": {
+											"raw": "{{url}}/organizations/1377a295-7d70-4e41-a086-87c39f243fd7/locations/test_2023_09_08_2023",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"organizations",
+												"1377a295-7d70-4e41-a086-87c39f243fd7",
+												"locations",
+												"test_2023_09_08_2023"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Messing around for test review",
+			"item": [
+				{
+					"name": "Setup",
+					"item": [
+						{
+							"name": "Submit Point - vehicle 1 Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": 43.702738, \r\n\t\"lon\": -70.318137,\r\n\t\"course\": 280,\r\n\t\"alt\": 10,\r\n\t\"speed\": 45,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": false,\r\n\t\"accelerometer\": [{\"x\":0.06153846,\"y\":0.69157511,\"z\":0.62124544}]\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/1377a295-7d70-4e41-a086-87c39f243fd7/things/test_thing_1/points",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"1377a295-7d70-4e41-a086-87c39f243fd7",
+										"things",
+										"test_thing_1",
+										"points"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submit Point - vehicle 2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": 43.6649036, \r\n\t\"lon\": -70.251841,\r\n\t\"course\": 285,\r\n\t\"alt\": 10,\r\n\t\"speed\": 45,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": true\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/1377a295-7d70-4e41-a086-87c39f243fd7/things/test_thing_2/points",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"1377a295-7d70-4e41-a086-87c39f243fd7",
+										"things",
+										"test_thing_2",
+										"points"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submit Point - vehicle 3",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": 43.6601670, \r\n\t\"lon\": -70.250193,\r\n\t\"course\": 285,\r\n\t\"alt\": 10,\r\n\t\"speed\": 45,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": true\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/1377a295-7d70-4e41-a086-87c39f243fd7/things/test_thing_3/points",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"1377a295-7d70-4e41-a086-87c39f243fd7",
+										"things",
+										"test_thing_3",
+										"points"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submit Point - vehicle 4",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": 43.6536014, \r\n\t\"lon\": -70.2714461,\r\n\t\"course\": 285,\r\n\t\"alt\": 10,\r\n\t\"speed\": 45,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": false\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/1377a295-7d70-4e41-a086-87c39f243fd7/things/test_thing_4/points",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"1377a295-7d70-4e41-a086-87c39f243fd7",
+										"things",
+										"test_thing_4",
+										"points"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submit Point - vehicle 5",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": 43.6587076, \r\n\t\"lon\": -70.2948433,\r\n\t\"course\": 265,\r\n\t\"alt\": 10,\r\n\t\"speed\": 45,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": true\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/1377a295-7d70-4e41-a086-87c39f243fd7/things/test_thing_5/points",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"1377a295-7d70-4e41-a086-87c39f243fd7",
+										"things",
+										"test_thing_5",
+										"points"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submit Point - vehicle 6",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": 43.6839063, \r\n\t\"lon\": -70.2912289,\r\n\t\"course\": 165,\r\n\t\"alt\": 10,\r\n\t\"speed\": 45,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": true\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/1377a295-7d70-4e41-a086-87c39f243fd7/things/test_thing_6/points",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"1377a295-7d70-4e41-a086-87c39f243fd7",
+										"things",
+										"test_thing_6",
+										"points"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submit Point - vehicle 7",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": 43.706159, \r\n\t\"lon\": -70.2412019,\r\n\t\"course\": 359,\r\n\t\"alt\": 10,\r\n\t\"speed\": 45,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": false\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/1377a295-7d70-4e41-a086-87c39f243fd7/things/test_thing_7/points",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"1377a295-7d70-4e41-a086-87c39f243fd7",
+										"things",
+										"test_thing_7",
+										"points"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submit Point - vehicle 8",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": 43.6565559, \r\n\t\"lon\": -70.1981014,\r\n\t\"course\": 170,\r\n\t\"alt\": 10,\r\n\t\"speed\": 45,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": false\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/1377a295-7d70-4e41-a086-87c39f243fd7/things/test_thing_8/points",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"1377a295-7d70-4e41-a086-87c39f243fd7",
+										"things",
+										"test_thing_8",
+										"points"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submit Point - vehicle 9",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": 43.699096,\r\n\t\"lon\": -70.288641,\r\n\t\"course\": 12,\r\n\t\"alt\": 10,\r\n\t\"speed\": 45,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": true\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/1377a295-7d70-4e41-a086-87c39f243fd7/things/test_thing_9/points",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"1377a295-7d70-4e41-a086-87c39f243fd7",
+										"things",
+										"test_thing_9",
+										"points"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submit Point - vehicle 10",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": 43.679765,\r\n\t\"lon\": -70.272168,\r\n\t\"course\": 245,\r\n\t\"alt\": 10,\r\n\t\"speed\": 45,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": true\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/1377a295-7d70-4e41-a086-87c39f243fd7/things/test_thing_10/points",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"1377a295-7d70-4e41-a086-87c39f243fd7",
+										"things",
+										"test_thing_10",
+										"points"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submit Location (with Thing)",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": 43.665026,\r\n\t\"lon\": -70.251905,\r\n\t\"altitude\": \"100\",\r\n\t\"type\": \"emergency\",\r\n\t\"things\": [\"test_thing_2\"]\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/1377a295-7d70-4e41-a086-87c39f243fd7/locations",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"1377a295-7d70-4e41-a086-87c39f243fd7",
+										"locations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submit Location (with Thing)",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"lat\": 43.660199,\r\n\t\"lon\": -70.250112,\r\n\t\"altitude\": \"100\",\r\n\t\"type\": \"emergency\",\r\n\t\"things\": [\"test_thing_3\"]\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/1377a295-7d70-4e41-a086-87c39f243fd7/locations",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"1377a295-7d70-4e41-a086-87c39f243fd7",
+										"locations"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "WS Tests",
+					"item": [
+						{
+							"name": "Assets",
+							"item": [
+								{
+									"name": "Retrieve All Assets",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "ACCEPT",
+												"value": "application/vnd.haasalert.com; version=2"
+											}
+										],
+										"url": {
+											"raw": "{{url}}/organizations/1377a295-7d70-4e41-a086-87c39f243fd7/things",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"organizations",
+												"1377a295-7d70-4e41-a086-87c39f243fd7",
+												"things"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Asset",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "ACCEPT",
+												"value": "application/vnd.haasalert.com; version=2"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"external_id\": \"test_thing_10_ext_id\",\n    \"type\": \"police\",\n    \"subtype\": \"patrol\",\n    \"name\": \"test_thing_10_nickname-update\",\n    \"registry_number\": \"test_thing_10_reg-update\",\n    \"vin_number\": \"test_thing_10_vin-update\",\n    \"license_plate_number\": \"test_thing_10_plate-update\",\n    \"in_service\": true,\n    \"is_publicly_alerting\": true,\n    \"is_r2r_enabled\": true, \n    \"platform\": \"test_thing_10_platform-update\",\n    \"software_version\": \"test-updatre\",\n    \"hardware_model\": \"testing-update\"\n}"
+										},
+										"url": {
+											"raw": "{{url}}/organizations/1377a295-7d70-4e41-a086-87c39f243fd7/things/test_thing_10_ext_id",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"organizations",
+												"1377a295-7d70-4e41-a086-87c39f243fd7",
+												"things",
+												"test_thing_10_ext_id"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Heartbeat",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "ACCEPT",
+												"value": "application/vnd.haasalert.com; version=2"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"lat\": 43,\n    \"lon\": -88,\n    \"speed\": 10,\n    \"alt\": 20,\n    \"course\": 90,\n    \"timestamp\": \"2023-04-04 18:37:08.021694\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/organizations/1377a295-7d70-4e41-a086-87c39f243fd7/things/test_thing_1/heartbeats",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"organizations",
+												"1377a295-7d70-4e41-a086-87c39f243fd7",
+												"things",
+												"test_thing_1",
+												"heartbeats"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Point - vehicle 10",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJIQUFTIEFsZXJ0IiwiaWF0IjoxNjk3NjQ2NzUxLCJleHAiOjE2OTc3MzMxNTEsImp0aSI6ImUwN2ZjZDY4LWViNjYtNDEzZS04MjdjLTVkY2Y1NmM1NjYxNyIsInVzZXIiOnsiaWQiOiIzOTQ5MjEzMi02ZWRiLTQ2ZDEtYmRkYy01NGNlNzA5MGNjNzIiLCJlbWFpbCI6InFhdGVzdEBoYWFzYWxlcnQuY29tIiwib3JnYW5pemF0aW9uX2lkIjoiMTM3N2EyOTUtN2Q3MC00ZTQxLWEwODYtODdjMzlmMjQzZmQ3IiwiZmVhdHVyZXMiOnsic2FtbCI6ZmFsc2V9LCJzZXJ2aWNlcyI6WyJmbGVldF9mdXNpb24iLCJkcml2ZSIsInNhZmV0eV9jbG91ZCIsImhhX2RpcmVjdCIsImFsZXJ0X3NlcnZpY2UiLCJ3emR4X3B1Ymxpc2hlciIsInd6ZHhfaW5nZXN0b3IiXX19.v4PZcPBqCxDl5XezkRz0mSHtUrQi8IdFoyz6_PdhKfid4-H4Mx-VBQqdy5gRYglF4o73B3TfLQ3LB_F0rmuq3g",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "ACCEPT",
+												"value": "application/vnd.haasalert.com; version=2"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"lat\": 43.778741,\r\n    \"lon\": -70.773528,\r\n    \"course\": 245,\r\n    \"speed\": 20,\r\n    \"is_active\": true,\r\n    \"should_alert\": true,\r\n    \"timestamp\":\"2023-04-04 13:59:08.021694\",\r\n    \"epoch_ts\": 1680633841,\r\n    \"accuracy\": 1.000,\r\n    \"alt\": 10,\r\n    \"accelerometer\": []\r\n}\r\n"
+										},
+										"url": {
+											"raw": "{{url}}/organizations/{{dash_reg}}/things/test_thing_10_ext_id/points",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"organizations",
+												"{{dash_reg}}",
+												"things",
+												"test_thing_10_ext_id",
+												"points"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Point - grouping 1",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJIQUFTIEFsZXJ0IiwiaWF0IjoxNjk3NjQ2NzUxLCJleHAiOjE2OTc3MzMxNTEsImp0aSI6ImUwN2ZjZDY4LWViNjYtNDEzZS04MjdjLTVkY2Y1NmM1NjYxNyIsInVzZXIiOnsiaWQiOiIzOTQ5MjEzMi02ZWRiLTQ2ZDEtYmRkYy01NGNlNzA5MGNjNzIiLCJlbWFpbCI6InFhdGVzdEBoYWFzYWxlcnQuY29tIiwib3JnYW5pemF0aW9uX2lkIjoiMTM3N2EyOTUtN2Q3MC00ZTQxLWEwODYtODdjMzlmMjQzZmQ3IiwiZmVhdHVyZXMiOnsic2FtbCI6ZmFsc2V9LCJzZXJ2aWNlcyI6WyJmbGVldF9mdXNpb24iLCJkcml2ZSIsInNhZmV0eV9jbG91ZCIsImhhX2RpcmVjdCIsImFsZXJ0X3NlcnZpY2UiLCJ3emR4X3B1Ymxpc2hlciIsInd6ZHhfaW5nZXN0b3IiXX19.v4PZcPBqCxDl5XezkRz0mSHtUrQi8IdFoyz6_PdhKfid4-H4Mx-VBQqdy5gRYglF4o73B3TfLQ3LB_F0rmuq3g",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "ACCEPT",
+												"value": "application/vnd.haasalert.com; version=2"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"lat\": 43.657900,\r\n\t\"lon\": -70.197507,\r\n\t\"course\": 245,\r\n\t\"alt\": 10,\r\n\t\"speed\": 1,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": false\r\n}\r\n"
+										},
+										"url": {
+											"raw": "{{url}}/organizations/{{dash_reg}}/things/grouping_ambo_1/points",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"organizations",
+												"{{dash_reg}}",
+												"things",
+												"grouping_ambo_1",
+												"points"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Point - grouping 2",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJIQUFTIEFsZXJ0IiwiaWF0IjoxNjk3NjQ2NzUxLCJleHAiOjE2OTc3MzMxNTEsImp0aSI6ImUwN2ZjZDY4LWViNjYtNDEzZS04MjdjLTVkY2Y1NmM1NjYxNyIsInVzZXIiOnsiaWQiOiIzOTQ5MjEzMi02ZWRiLTQ2ZDEtYmRkYy01NGNlNzA5MGNjNzIiLCJlbWFpbCI6InFhdGVzdEBoYWFzYWxlcnQuY29tIiwib3JnYW5pemF0aW9uX2lkIjoiMTM3N2EyOTUtN2Q3MC00ZTQxLWEwODYtODdjMzlmMjQzZmQ3IiwiZmVhdHVyZXMiOnsic2FtbCI6ZmFsc2V9LCJzZXJ2aWNlcyI6WyJmbGVldF9mdXNpb24iLCJkcml2ZSIsInNhZmV0eV9jbG91ZCIsImhhX2RpcmVjdCIsImFsZXJ0X3NlcnZpY2UiLCJ3emR4X3B1Ymxpc2hlciIsInd6ZHhfaW5nZXN0b3IiXX19.v4PZcPBqCxDl5XezkRz0mSHtUrQi8IdFoyz6_PdhKfid4-H4Mx-VBQqdy5gRYglF4o73B3TfLQ3LB_F0rmuq3g",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "ACCEPT",
+												"value": "application/vnd.haasalert.com; version=2"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"lat\": 43.657139,\r\n\t\"lon\": -70.196579,\r\n\t\"course\": 90,\r\n\t\"alt\": 10,\r\n\t\"speed\": 0,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": false\r\n}\r\n"
+										},
+										"url": {
+											"raw": "{{url}}/organizations/{{dash_reg}}/things/grouping_ambo_2/points",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"organizations",
+												"{{dash_reg}}",
+												"things",
+												"grouping_ambo_2",
+												"points"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Closures",
+							"item": [
+								{
+									"name": "Activate Closure 1",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "ACCEPT",
+												"value": "application/vnd.haasalert.com; version=2"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"type\": \"emergency\",\r\n\t\"lat\": 43.66016,\r\n\t\"lon\": -70.25266,\r\n    \"street_name\": \"test\",\r\n\t\"things\": [\"closure_thing_1\"]\r\n}"
+										},
+										"url": {
+											"raw": "{{url}}/organizations/1377a295-7d70-4e41-a086-87c39f243fd7/locations",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"organizations",
+												"1377a295-7d70-4e41-a086-87c39f243fd7",
+												"locations"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Deactivate Closure 1",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "ACCEPT",
+												"value": "application/vnd.haasalert.com; version=2"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"lat\": 43.66016,\r\n\t\"lon\": -70.25266,\r\n\t\"course\": 245,\r\n\t\"alt\": 10,\r\n\t\"speed\": 45,\r\n\t\"accuracy\": 1.7000,\r\n\t\"is_active\": false\r\n}\r\n"
+										},
+										"url": {
+											"raw": "{{url}}/organizations/1377a295-7d70-4e41-a086-87c39f243fd7/things/closure_thing_1/points",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"organizations",
+												"1377a295-7d70-4e41-a086-87c39f243fd7",
+												"things",
+												"closure_thing_1",
+												"points"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create Closure",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"// get current time\r",
+													"const current_date_time = new Date();\r",
+													"// add to vars to use in request\r",
+													"pm.variables.set(\"current_date_time\", current_date_time);\r",
+													"// get end time\r",
+													"const end_date_time = new Date(current_date_time.getTime() + (5 * 60 * 1000));\r",
+													"pm.variables.set(\"end_date_time\", end_date_time);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/vnd.haasalert.com; version=2",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"is_active\": true,\r\n    \"closure_type\": \"feed\",\r\n    \"description\": \"test feed closure\",\r\n    \"alert_message\": \"ramp closed\",\r\n    \"user_route\": [\r\n        {\"lat\": 43.6661154, \"lon\": -70.3288929},\r\n        {\"lat\": 43.6652998, \"lon\": -70.3294923},\r\n        {\"lat\": 43.6646237, \"lon\": -70.3299799}, \r\n        {\"lat\": 43.6644253, \"lon\": -70.3307418}, \r\n        {\"lat\": 43.6646090, \"lon\": -70.3313208}, \r\n        {\"lat\": 43.6650499, \"lon\": -70.3315951},\r\n        {\"lat\": 43.6655423, \"lon\": -70.3315646}\r\n    ],\r\n    \"impacted_lanes\": [1],\r\n    \"is_in_service\": true,\r\n    \"external_id\": \"test_closure_12_08_2022_1\",\r\n    \"direction\": \"S\",\r\n    \"event_type\": \"work-zone\",\r\n    \"group_id\": \"group123\",\r\n    \"is_wzdx_compliant\": true,\r\n    \"vehicle_impact\": \"some-lanes-closed\",\r\n    \"location_method\": \"junction-method\",\r\n    \"start_time\": \"{{current_date_time}}\",\r\n    \"end_time\": \"{{end_date_time}}\"\r\n}"
+										},
+										"url": {
+											"raw": "{{url}}/organizations/1377a295-7d70-4e41-a086-87c39f243fd7/closures",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"organizations",
+												"1377a295-7d70-4e41-a086-87c39f243fd7",
+												"closures"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Closure",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"// get current time\r",
+													"const current_date_time = new Date();\r",
+													"// add to vars to use in request\r",
+													"pm.variables.set(\"current_date_time\", current_date_time);\r",
+													"// get end time\r",
+													"const end_date_time = new Date(current_date_time.getTime() + (30 * 60 * 1000));\r",
+													"pm.variables.set(\"end_date_time\", end_date_time);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/vnd.haasalert.com; version=2",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"is_active\": false,\n    \"closure_type\": \"manual\",\n    \"description\": \"test feed closure\",\n    \"alert_message\": \"ramp closed\",\n    \"user_route\": [\n        {\"lat\": 43.6661154, \"lon\": -70.3288929},\n        {\"lat\": 43.6652998, \"lon\": -70.3294923},\n        {\"lat\": 43.6646237, \"lon\": -70.3299799}, \n        {\"lat\": 43.6644253, \"lon\": -70.3307418}, \n        {\"lat\": 43.6646090, \"lon\": -70.3313208}, \n        {\"lat\": 43.6650499, \"lon\": -70.3315951},\n        {\"lat\": 43.6655423, \"lon\": -70.3315646}\n    ],\n    \"impacted_lanes\": [1],\n    \"is_in_service\": true,\n    \"direction\": \"S\",\n    \"event_type\": \"work-zone\",\n    \"group_id\": \"group123\",\n    \"is_wzdx_compliant\": true,\n    \"vehicle_impact\": \"some-lanes-closed\",\n    \"location_method\": \"junction-method\",\n    \"start_time\": \"{{current_date_time}}\",\n    \"end_time\": \"{{end_date_time}}\"\n}"
+										},
+										"url": {
+											"raw": "{{url}}/organizations/1377a295-7d70-4e41-a086-87c39f243fd7/closures/33f795c0-91bb-4b4a-8645-e24cff4589e4",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"organizations",
+												"1377a295-7d70-4e41-a086-87c39f243fd7",
+												"closures",
+												"33f795c0-91bb-4b4a-8645-e24cff4589e4"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Closure",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/vnd.haasalert.com; version=2",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{url}}/organizations/1377a295-7d70-4e41-a086-87c39f243fd7/closures/test_closure_12_08_2022_1",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"organizations",
+												"1377a295-7d70-4e41-a086-87c39f243fd7",
+												"closures",
+												"test_closure_12_08_2022_1"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Submit Location (no Thing)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJIQUFTIEFsZXJ0IiwiaWF0IjoxNjk3NjQ2NzUxLCJleHAiOjE2OTc3MzMxNTEsImp0aSI6ImUwN2ZjZDY4LWViNjYtNDEzZS04MjdjLTVkY2Y1NmM1NjYxNyIsInVzZXIiOnsiaWQiOiIzOTQ5MjEzMi02ZWRiLTQ2ZDEtYmRkYy01NGNlNzA5MGNjNzIiLCJlbWFpbCI6InFhdGVzdEBoYWFzYWxlcnQuY29tIiwib3JnYW5pemF0aW9uX2lkIjoiMTM3N2EyOTUtN2Q3MC00ZTQxLWEwODYtODdjMzlmMjQzZmQ3IiwiZmVhdHVyZXMiOnsic2FtbCI6ZmFsc2V9LCJzZXJ2aWNlcyI6WyJmbGVldF9mdXNpb24iLCJkcml2ZSIsInNhZmV0eV9jbG91ZCIsImhhX2RpcmVjdCIsImFsZXJ0X3NlcnZpY2UiLCJ3emR4X3B1Ymxpc2hlciIsInd6ZHhfaW5nZXN0b3IiXX19.v4PZcPBqCxDl5XezkRz0mSHtUrQi8IdFoyz6_PdhKfid4-H4Mx-VBQqdy5gRYglF4o73B3TfLQ3LB_F0rmuq3g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"external_id\": \"test_2023_04_04_1\",\r\n    \"lat\": 43.643340,\r\n    \"lon\": -70.256708,\r\n    \"altitude\": \"100\",\r\n    \"type\": \"emergency\",\r\n    \"alt\": 10,\r\n    \"street_name\": \"test\",\r\n    \"things\": [\"test_thing_1\"],\r\n    \"alert_message\": \"testing alert message\",\r\n    \"duration\": 10\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/{{dash_reg}}/locations",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"{{dash_reg}}",
+										"locations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Location 1",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJIQUFTIEFsZXJ0IiwiaWF0IjoxNjk3NjQ2NzUxLCJleHAiOjE2OTc3MzMxNTEsImp0aSI6ImUwN2ZjZDY4LWViNjYtNDEzZS04MjdjLTVkY2Y1NmM1NjYxNyIsInVzZXIiOnsiaWQiOiIzOTQ5MjEzMi02ZWRiLTQ2ZDEtYmRkYy01NGNlNzA5MGNjNzIiLCJlbWFpbCI6InFhdGVzdEBoYWFzYWxlcnQuY29tIiwib3JnYW5pemF0aW9uX2lkIjoiMTM3N2EyOTUtN2Q3MC00ZTQxLWEwODYtODdjMzlmMjQzZmQ3IiwiZmVhdHVyZXMiOnsic2FtbCI6ZmFsc2V9LCJzZXJ2aWNlcyI6WyJmbGVldF9mdXNpb24iLCJkcml2ZSIsInNhZmV0eV9jbG91ZCIsImhhX2RpcmVjdCIsImFsZXJ0X3NlcnZpY2UiLCJ3emR4X3B1Ymxpc2hlciIsInd6ZHhfaW5nZXN0b3IiXX19.v4PZcPBqCxDl5XezkRz0mSHtUrQi8IdFoyz6_PdhKfid4-H4Mx-VBQqdy5gRYglF4o73B3TfLQ3LB_F0rmuq3g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"type\": \"construction\",\n    \"alert_message\": \"update alert message\",\n    \"lat\": 43.660209, \n    \"lon\": -70.250132,\n    \"things_to_add\": [\"test_thing_2\"],\n    \"things_to_remove\": [\"test_thing_1\"],\n    \"duration\": 20\n}"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/{{dash_reg}}/locations/2f611bf8-8130-445a-a1f2-67ab8560bcda",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"{{dash_reg}}",
+										"locations",
+										"2f611bf8-8130-445a-a1f2-67ab8560bcda"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submit Location (w Thing)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJIQUFTIEFsZXJ0IiwiaWF0IjoxNjk3NjQ2NzUxLCJleHAiOjE2OTc3MzMxNTEsImp0aSI6ImUwN2ZjZDY4LWViNjYtNDEzZS04MjdjLTVkY2Y1NmM1NjYxNyIsInVzZXIiOnsiaWQiOiIzOTQ5MjEzMi02ZWRiLTQ2ZDEtYmRkYy01NGNlNzA5MGNjNzIiLCJlbWFpbCI6InFhdGVzdEBoYWFzYWxlcnQuY29tIiwib3JnYW5pemF0aW9uX2lkIjoiMTM3N2EyOTUtN2Q3MC00ZTQxLWEwODYtODdjMzlmMjQzZmQ3IiwiZmVhdHVyZXMiOnsic2FtbCI6ZmFsc2V9LCJzZXJ2aWNlcyI6WyJmbGVldF9mdXNpb24iLCJkcml2ZSIsInNhZmV0eV9jbG91ZCIsImhhX2RpcmVjdCIsImFsZXJ0X3NlcnZpY2UiLCJ3emR4X3B1Ymxpc2hlciIsInd6ZHhfaW5nZXN0b3IiXX19.v4PZcPBqCxDl5XezkRz0mSHtUrQi8IdFoyz6_PdhKfid4-H4Mx-VBQqdy5gRYglF4o73B3TfLQ3LB_F0rmuq3g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"external_id\": \"test_2023_04_05_1\",\r\n\t\"lat\": 43.653340,\r\n\t\"lon\": -70.256508,\r\n\t\"altitude\": \"100\",\r\n\t\"type\": \"emergency\",\r\n    \"things\": [\"test_thing_2\"]\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/{{dash_reg}}/locations",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"{{dash_reg}}",
+										"locations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Location 2",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJIQUFTIEFsZXJ0IiwiaWF0IjoxNjk3NjQ2NzUxLCJleHAiOjE2OTc3MzMxNTEsImp0aSI6ImUwN2ZjZDY4LWViNjYtNDEzZS04MjdjLTVkY2Y1NmM1NjYxNyIsInVzZXIiOnsiaWQiOiIzOTQ5MjEzMi02ZWRiLTQ2ZDEtYmRkYy01NGNlNzA5MGNjNzIiLCJlbWFpbCI6InFhdGVzdEBoYWFzYWxlcnQuY29tIiwib3JnYW5pemF0aW9uX2lkIjoiMTM3N2EyOTUtN2Q3MC00ZTQxLWEwODYtODdjMzlmMjQzZmQ3IiwiZmVhdHVyZXMiOnsic2FtbCI6ZmFsc2V9LCJzZXJ2aWNlcyI6WyJmbGVldF9mdXNpb24iLCJkcml2ZSIsInNhZmV0eV9jbG91ZCIsImhhX2RpcmVjdCIsImFsZXJ0X3NlcnZpY2UiLCJ3emR4X3B1Ymxpc2hlciIsInd6ZHhfaW5nZXN0b3IiXX19.v4PZcPBqCxDl5XezkRz0mSHtUrQi8IdFoyz6_PdhKfid4-H4Mx-VBQqdy5gRYglF4o73B3TfLQ3LB_F0rmuq3g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"things_to_remove\": [\"test_thing_2\"]\n}"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/{{dash_reg}}/locations/test_2023_03_28_2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"{{dash_reg}}",
+										"locations",
+										"test_2023_03_28_2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deactivate Location Copy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJIQUFTIEFsZXJ0IiwiaWF0IjoxNjk3NjQ2NzUxLCJleHAiOjE2OTc3MzMxNTEsImp0aSI6ImUwN2ZjZDY4LWViNjYtNDEzZS04MjdjLTVkY2Y1NmM1NjYxNyIsInVzZXIiOnsiaWQiOiIzOTQ5MjEzMi02ZWRiLTQ2ZDEtYmRkYy01NGNlNzA5MGNjNzIiLCJlbWFpbCI6InFhdGVzdEBoYWFzYWxlcnQuY29tIiwib3JnYW5pemF0aW9uX2lkIjoiMTM3N2EyOTUtN2Q3MC00ZTQxLWEwODYtODdjMzlmMjQzZmQ3IiwiZmVhdHVyZXMiOnsic2FtbCI6ZmFsc2V9LCJzZXJ2aWNlcyI6WyJmbGVldF9mdXNpb24iLCJkcml2ZSIsInNhZmV0eV9jbG91ZCIsImhhX2RpcmVjdCIsImFsZXJ0X3NlcnZpY2UiLCJ3emR4X3B1Ymxpc2hlciIsInd6ZHhfaW5nZXN0b3IiXX19.v4PZcPBqCxDl5XezkRz0mSHtUrQi8IdFoyz6_PdhKfid4-H4Mx-VBQqdy5gRYglF4o73B3TfLQ3LB_F0rmuq3g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "ACCEPT",
+										"value": "application/vnd.haasalert.com; version=2"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/organizations/{{dash_reg}}/locations/2ad625b1-4666-4163-b9c8-b4400b1ac60e",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"{{dash_reg}}",
+										"locations",
+										"2ad625b1-4666-4163-b9c8-b4400b1ac60e"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "remove_thing_loc_id",
+			"value": ""
+		},
+		{
+			"key": "auth_url",
+			"value": "https://api.haasalertstaging.com"
+		},
+		{
+			"key": "url",
+			"value": "https://api.haasalertstaging.com"
+		},
+		{
+			"key": "dash_reg",
+			"value": "1377a295-7d70-4e41-a086-87c39f243fd7"
+		},
+		{
+			"key": "update_location_ID",
+			"value": "90309688-cd14-4aed-82ca-b3e18ce52292"
+		}
+	]
+}
